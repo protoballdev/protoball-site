@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Protoball</title>
+    <style>
+      :root {
+        --bg: #09111f;
+        --bg-soft: #101c31;
+        --panel: rgba(12, 22, 39, 0.82);
+        --line: rgba(120, 198, 255, 0.22);
+        --text: #eaf4ff;
+        --muted: #9bb2cb;
+        --accent: #7df9c6;
+        --accent-2: #79b8ff;
+        --shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+        color: var(--text);
+        background:
+          radial-gradient(circle at top, rgba(121, 184, 255, 0.16), transparent 32%),
+          radial-gradient(circle at bottom right, rgba(125, 249, 198, 0.12), transparent 28%),
+          linear-gradient(180deg, #0a1426 0%, var(--bg) 100%);
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        background-image:
+          linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        background-size: 28px 28px;
+        mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.5), transparent);
+      }
+
+      .page {
+        width: min(1080px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 48px 0 64px;
+      }
+
+      .hero,
+      .panel {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 24px;
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(12px);
+      }
+
+      .hero {
+        padding: 56px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        width: 280px;
+        height: 280px;
+        right: -80px;
+        top: -60px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(125, 249, 198, 0.25), transparent 65%);
+      }
+
+      .eyebrow {
+        display: inline-block;
+        margin-bottom: 14px;
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: rgba(121, 184, 255, 0.12);
+        color: var(--accent);
+        font-size: 0.78rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2 {
+        margin: 0;
+        line-height: 1;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        max-width: 8ch;
+        font-size: clamp(3rem, 10vw, 6.5rem);
+        letter-spacing: 0.04em;
+      }
+
+      .hero p {
+        max-width: 620px;
+        margin: 18px 0 0;
+        color: var(--muted);
+        font-size: 1.08rem;
+        line-height: 1.7;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+        margin-top: 20px;
+      }
+
+      .panel {
+        padding: 28px;
+      }
+
+      h2 {
+        margin-bottom: 18px;
+        font-size: 1.35rem;
+        letter-spacing: 0.1em;
+      }
+
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      li {
+        position: relative;
+        padding: 14px 0 14px 20px;
+        color: var(--muted);
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      li:first-child {
+        border-top: 0;
+        padding-top: 0;
+      }
+
+      li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 20px;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+        box-shadow: 0 0 16px rgba(125, 249, 198, 0.5);
+      }
+
+      li:first-child::before {
+        top: 6px;
+      }
+
+      .media {
+        margin-top: 20px;
+        padding: 0;
+        overflow: hidden;
+      }
+
+      .media-frame {
+        aspect-ratio: 16 / 9;
+        display: grid;
+        place-items: center;
+        padding: 24px;
+        background:
+          linear-gradient(135deg, rgba(121, 184, 255, 0.15), rgba(125, 249, 198, 0.08)),
+          linear-gradient(180deg, #0d1627 0%, #050a14 100%);
+      }
+
+      .media-inner {
+        width: min(100%, 720px);
+        padding: 32px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 20px;
+        background: rgba(5, 10, 20, 0.55);
+        text-align: center;
+      }
+
+      .media-tag {
+        display: inline-block;
+        margin-bottom: 14px;
+        color: var(--accent);
+        font-size: 0.85rem;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .media-title {
+        margin: 0;
+        font-size: clamp(1.4rem, 4vw, 2.6rem);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .media-copy {
+        margin: 12px auto 0;
+        max-width: 42ch;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      .footer {
+        margin-top: 18px;
+        color: #7389a3;
+        font-size: 0.9rem;
+        text-align: center;
+      }
+
+      @media (max-width: 780px) {
+        .page {
+          width: min(100% - 20px, 1080px);
+          padding: 20px 0 32px;
+        }
+
+        .hero,
+        .panel {
+          border-radius: 20px;
+        }
+
+        .hero {
+          padding: 28px;
+        }
+
+        .grid {
+          grid-template-columns: 1fr;
+        }
+
+        .panel {
+          padding: 22px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <section class="hero">
+        <span class="eyebrow">Indie Football Prototype</span>
+        <h1>Protoball</h1>
+        <p>
+          Fast first-person football built around physical ball control, reactive AI,
+          and a renderer focused on clarity, speed, and readable action.
+        </p>
+      </section>
+
+      <section class="grid">
+        <article class="panel">
+          <h2>Features</h2>
+          <ul>
+            <li>First-person gameplay</li>
+            <li>Procedural ball control</li>
+            <li>AI based on finite state machines</li>
+            <li>OpenGL renderer</li>
+          </ul>
+        </article>
+
+        <article class="panel">
+          <h2>Latest Devlogs</h2>
+          <ul>
+            <li>Devlog #1</li>
+            <li>Devlog #2</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="panel media">
+        <div class="media-frame">
+          <div class="media-inner">
+            <span class="media-tag">Media</span>
+            <h2 class="media-title">Video or GIF goes here</h2>
+            <p class="media-copy">
+              Replace this block with your gameplay clip, teaser trailer, or an animated
+              GIF showing ball control and match flow.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <p class="footer">Static landing page ready to publish.</p>
+    </main>
+  </body>
+</html>
