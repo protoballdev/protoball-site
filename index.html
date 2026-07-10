@@ -6,15 +6,16 @@
     <title>Protoball</title>
     <style>
       :root {
-        --bg: #09111f;
-        --bg-soft: #101c31;
-        --panel: rgba(12, 22, 39, 0.82);
-        --line: rgba(120, 198, 255, 0.22);
-        --text: #eaf4ff;
-        --muted: #9bb2cb;
-        --accent: #7df9c6;
-        --accent-2: #79b8ff;
-        --shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
+        --bg: #f8f7f2;
+        --bg-soft: #e8f5fc;
+        --panel: rgba(248, 247, 242, 0.84);
+        --line: rgba(46, 52, 64, 0.12);
+        --text: #2e3440;
+        --muted: #5c6675;
+        --accent: #9ad94f;
+        --accent-2: #7b61ff;
+        --sky: #6ecff6;
+        --shadow: 0 24px 60px rgba(46, 52, 64, 0.14);
       }
 
       * {
@@ -27,9 +28,9 @@
         font-family: "Trebuchet MS", "Segoe UI", sans-serif;
         color: var(--text);
         background:
-          radial-gradient(circle at top, rgba(121, 184, 255, 0.16), transparent 32%),
-          radial-gradient(circle at bottom right, rgba(125, 249, 198, 0.12), transparent 28%),
-          linear-gradient(180deg, #0a1426 0%, var(--bg) 100%);
+          radial-gradient(circle at top, rgba(110, 207, 246, 0.34), transparent 34%),
+          radial-gradient(circle at bottom right, rgba(123, 97, 255, 0.12), transparent 30%),
+          linear-gradient(180deg, var(--bg-soft) 0%, var(--bg) 100%);
       }
 
       body::before {
@@ -38,8 +39,8 @@
         inset: 0;
         pointer-events: none;
         background-image:
-          linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+          linear-gradient(rgba(46, 52, 64, 0.04) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(46, 52, 64, 0.04) 1px, transparent 1px);
         background-size: 28px 28px;
         mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.5), transparent);
       }
@@ -73,7 +74,7 @@
         right: -80px;
         top: -60px;
         border-radius: 50%;
-        background: radial-gradient(circle, rgba(125, 249, 198, 0.25), transparent 65%);
+        background: radial-gradient(circle, rgba(154, 217, 79, 0.32), transparent 65%);
       }
 
       .eyebrow {
@@ -81,8 +82,8 @@
         margin-bottom: 14px;
         padding: 8px 12px;
         border-radius: 999px;
-        background: rgba(121, 184, 255, 0.12);
-        color: var(--accent);
+        background: rgba(110, 207, 246, 0.2);
+        color: var(--accent-2);
         font-size: 0.78rem;
         letter-spacing: 0.14em;
         text-transform: uppercase;
@@ -136,7 +137,7 @@
         position: relative;
         padding: 14px 0 14px 20px;
         color: var(--muted);
-        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        border-top: 1px solid rgba(46, 52, 64, 0.1);
       }
 
       li:first-child {
@@ -153,7 +154,7 @@
         height: 8px;
         border-radius: 50%;
         background: linear-gradient(135deg, var(--accent), var(--accent-2));
-        box-shadow: 0 0 16px rgba(125, 249, 198, 0.5);
+        box-shadow: 0 0 16px rgba(123, 97, 255, 0.24);
       }
 
       li:first-child::before {
@@ -172,16 +173,16 @@
         place-items: center;
         padding: 24px;
         background:
-          linear-gradient(135deg, rgba(121, 184, 255, 0.15), rgba(125, 249, 198, 0.08)),
-          linear-gradient(180deg, #0d1627 0%, #050a14 100%);
+          linear-gradient(135deg, rgba(110, 207, 246, 0.24), rgba(154, 217, 79, 0.14)),
+          linear-gradient(180deg, #eef8fd 0%, #f8f7f2 100%);
       }
 
       .media-inner {
         width: min(100%, 720px);
         padding: 32px;
-        border: 1px solid rgba(255, 255, 255, 0.14);
+        border: 1px solid rgba(46, 52, 64, 0.12);
         border-radius: 20px;
-        background: rgba(5, 10, 20, 0.55);
+        background: rgba(248, 247, 242, 0.72);
         text-align: center;
       }
 
@@ -210,7 +211,7 @@
 
       .footer {
         margin-top: 18px;
-        color: #7389a3;
+        color: #66717f;
         font-size: 0.9rem;
         text-align: center;
       }
