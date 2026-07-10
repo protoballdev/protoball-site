@@ -1,0 +1,33 @@
+Dev Log #001 — Building ProtoBall's Procedural Animation Tools
+
+Today I'm sharing the first look at AnimLab, the animation tool I'm building for ProtoBall.
+
+The goal isn't to create traditional baked animations. Instead, I'm building a workflow where authored keyframes, procedural animation and inverse kinematics work together.
+
+At the moment, AnimLab lets me:
+
+Edit animation keyframes for individual joints.
+Visualize animation curves in real time.
+Preview procedural locomotion.
+Iterate quickly on player poses.
+Test inverse kinematics directly inside the editor.
+
+Everything is written in C++, using ImGui, ImPlot, and GLFW.
+
+This is only the beginning, but having dedicated tools already makes iteration much faster than tweaking values directly in code.
+
+Current roadmap
+
+Rather than completing the whole character skeleton first, I'm focusing on building a solid animation pipeline.
+
+The next milestones are:
+
+Improve the core animation workflow.
+Add only the joints needed for kicking and dribbling.
+Implement the first procedural kick.
+Build a small training mode to test movement and ball interaction.
+Integrate everything back into the gameplay runtime and AI.
+
+The long-term goal is to create football players that move naturally through a combination of authored animation, procedural systems and physics—not by relying exclusively on pre-baked animations.
+
+This is just the beginning.

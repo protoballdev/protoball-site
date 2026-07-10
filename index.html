@@ -110,6 +110,33 @@
         line-height: 1.7;
       }
 
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 28px;
+      }
+
+      .button-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 46px;
+        padding: 0 18px;
+        border: 1px solid rgba(46, 52, 64, 0.12);
+        border-radius: 999px;
+        color: var(--text);
+        background: rgba(248, 247, 242, 0.88);
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-size: 0.82rem;
+      }
+
+      .button-link.primary {
+        background: linear-gradient(135deg, var(--accent), #c7f36f);
+      }
+
       .grid {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -250,6 +277,9 @@
           Fast first-person football built around physical ball control, reactive AI,
           and a renderer focused on clarity, speed, and readable action.
         </p>
+        <div class="hero-actions">
+          <a class="button-link primary" href="devlog.html">Read Devlog</a>
+        </div>
       </section>
 
       <section class="grid">
@@ -266,8 +296,9 @@
         <article class="panel">
           <h2>Latest Devlogs</h2>
           <ul>
-            <li>Devlog #1</li>
-            <li>Devlog #2</li>
+            <li>
+              <a class="button-link" href="devlog.html">Dev Log #001: Building ProtoBall's Procedural Animation Tools</a>
+            </li>
           </ul>
         </article>
       </section>
@@ -285,7 +316,7 @@
         </div>
       </section>
 
-      <p class="footer">Static landing page ready to publish.</p>
+      <p class="footer">Read the full development archive in the devlog.</p>
     </main>
   </body>
 </html>
