@@ -3,7 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Protoball</title>
+
+    <title>ProtoBall — Physics Playground</title>
+
+    <meta
+      name="description"
+      content="ProtoBall is an experimental physics playground for building, simulating, breaking, and observing mechanical systems."
+    />
+
     <style>
       :root {
         --bg: #f8f7f2;
@@ -22,14 +29,26 @@
         box-sizing: border-box;
       }
 
+      html {
+        scroll-behavior: smooth;
+      }
+
       body {
         margin: 0;
         min-height: 100vh;
         font-family: "Trebuchet MS", "Segoe UI", sans-serif;
         color: var(--text);
         background:
-          radial-gradient(circle at top, rgba(110, 207, 246, 0.34), transparent 34%),
-          radial-gradient(circle at bottom right, rgba(123, 97, 255, 0.12), transparent 30%),
+          radial-gradient(
+            circle at top,
+            rgba(110, 207, 246, 0.34),
+            transparent 34%
+          ),
+          radial-gradient(
+            circle at bottom right,
+            rgba(123, 97, 255, 0.12),
+            transparent 30%
+          ),
           linear-gradient(180deg, var(--bg-soft) 0%, var(--bg) 100%);
       }
 
@@ -39,10 +58,21 @@
         inset: 0;
         pointer-events: none;
         background-image:
-          linear-gradient(rgba(46, 52, 64, 0.04) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(46, 52, 64, 0.04) 1px, transparent 1px);
+          linear-gradient(
+            rgba(46, 52, 64, 0.04) 1px,
+            transparent 1px
+          ),
+          linear-gradient(
+            90deg,
+            rgba(46, 52, 64, 0.04) 1px,
+            transparent 1px
+          );
         background-size: 28px 28px;
-        mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.5), transparent);
+        mask-image: linear-gradient(
+          180deg,
+          rgba(0, 0, 0, 0.5),
+          transparent
+        );
       }
 
       .page {
@@ -61,9 +91,9 @@
       }
 
       .hero {
-        padding: 56px;
         position: relative;
         overflow: hidden;
+        padding: 56px;
       }
 
       .hero::after {
@@ -74,7 +104,16 @@
         right: -80px;
         top: -60px;
         border-radius: 50%;
-        background: radial-gradient(circle, rgba(154, 217, 79, 0.32), transparent 65%);
+        background: radial-gradient(
+          circle,
+          rgba(154, 217, 79, 0.32),
+          transparent 65%
+        );
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 1;
       }
 
       .eyebrow {
@@ -85,6 +124,7 @@
         background: rgba(110, 207, 246, 0.2);
         color: var(--accent-2);
         font-size: 0.78rem;
+        font-weight: 700;
         letter-spacing: 0.14em;
         text-transform: uppercase;
       }
@@ -102,9 +142,18 @@
         letter-spacing: 0.04em;
       }
 
+      .hero-subtitle {
+        margin-top: 8px;
+        color: var(--accent-2);
+        font-size: clamp(1rem, 3vw, 1.35rem);
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
       .hero p {
-        max-width: 620px;
-        margin: 18px 0 0;
+        max-width: 680px;
+        margin: 20px 0 0;
         color: var(--muted);
         font-size: 1.08rem;
         line-height: 1.7;
@@ -131,6 +180,17 @@
         text-transform: uppercase;
         letter-spacing: 0.08em;
         font-size: 0.82rem;
+        font-weight: 700;
+        transition:
+          transform 160ms ease,
+          box-shadow 160ms ease,
+          border-color 160ms ease;
+      }
+
+      .button-link:hover {
+        transform: translateY(-2px);
+        border-color: rgba(123, 97, 255, 0.3);
+        box-shadow: 0 10px 22px rgba(46, 52, 64, 0.12);
       }
 
       .button-link.primary {
@@ -154,6 +214,12 @@
         letter-spacing: 0.1em;
       }
 
+      .panel-copy {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
       ul {
         margin: 0;
         padding: 0;
@@ -165,6 +231,7 @@
         padding: 14px 0 14px 20px;
         color: var(--muted);
         border-top: 1px solid rgba(46, 52, 64, 0.1);
+        line-height: 1.5;
       }
 
       li:first-child {
@@ -180,12 +247,59 @@
         width: 8px;
         height: 8px;
         border-radius: 50%;
-        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+        background: linear-gradient(
+          135deg,
+          var(--accent),
+          var(--accent-2)
+        );
         box-shadow: 0 0 16px rgba(123, 97, 255, 0.24);
       }
 
       li:first-child::before {
         top: 6px;
+      }
+
+      .devlog-link {
+        color: var(--text);
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      .devlog-link:hover {
+        color: var(--accent-2);
+      }
+
+      .status {
+        margin-top: 20px;
+      }
+
+      .status-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .status-item {
+        padding: 18px;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.38);
+      }
+
+      .status-label {
+        display: block;
+        margin-bottom: 8px;
+        color: var(--accent-2);
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .status-value {
+        color: var(--text);
+        font-size: 0.96rem;
+        line-height: 1.5;
       }
 
       .media {
@@ -200,7 +314,11 @@
         place-items: center;
         padding: 24px;
         background:
-          linear-gradient(135deg, rgba(110, 207, 246, 0.24), rgba(154, 217, 79, 0.14)),
+          linear-gradient(
+            135deg,
+            rgba(110, 207, 246, 0.24),
+            rgba(154, 217, 79, 0.14)
+          ),
           linear-gradient(180deg, #eef8fd 0%, #f8f7f2 100%);
       }
 
@@ -216,8 +334,9 @@
       .media-tag {
         display: inline-block;
         margin-bottom: 14px;
-        color: var(--accent);
+        color: var(--accent-2);
         font-size: 0.85rem;
+        font-weight: 700;
         letter-spacing: 0.16em;
         text-transform: uppercase;
       }
@@ -230,8 +349,8 @@
       }
 
       .media-copy {
+        max-width: 48ch;
         margin: 12px auto 0;
-        max-width: 42ch;
         color: var(--muted);
         line-height: 1.6;
       }
@@ -258,7 +377,8 @@
           padding: 28px;
         }
 
-        .grid {
+        .grid,
+        .status-grid {
           grid-template-columns: 1fr;
         }
 
@@ -268,36 +388,118 @@
       }
     </style>
   </head>
+
   <body>
     <main class="page">
       <section class="hero">
-        <span class="eyebrow">Indie Football Prototype</span>
-        <h1>Protoball</h1>
-        <p>
-          Fast first-person football built around physical ball control, reactive AI,
-          and a renderer focused on clarity, speed, and readable action.
-        </p>
-        <div class="hero-actions">
-          <a class="button-link primary" href="devlog.html">Read Devlog</a>
+        <div class="hero-content">
+          <span class="eyebrow">Experimental Physics Sandbox</span>
+
+          <h1>ProtoBall</h1>
+
+          <div class="hero-subtitle">Physics Playground</div>
+
+          <p>
+            Build mechanical systems, connect rigid bodies, launch ragdolls,
+            experiment with structures, and watch everything collide, deform,
+            break, or fly apart.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button-link primary" href="devlog.html">
+              Read Devlog
+            </a>
+
+            <a class="button-link" href="#current-work">
+              Current Work
+            </a>
+          </div>
         </div>
       </section>
 
       <section class="grid">
         <article class="panel">
-          <h2>Features</h2>
+          <h2>Playground</h2>
+
           <ul>
-            <li>First-person gameplay</li>
-            <li>Procedural ball control</li>
-            <li>AI based on finite state machines</li>
-            <li>OpenGL renderer</li>
+            <li>Rigid bodies, joints, anchors, ropes, and chains</li>
+            <li>Interactive ragdolls with procedural balance</li>
+            <li>Motors, propulsion systems, and mechanical experiments</li>
+            <li>Deformable structures with stress, plasticity, and failure</li>
           </ul>
         </article>
 
         <article class="panel">
+          <h2>Tools</h2>
+
+          <ul>
+            <li>Visual world editor with tree, viewport, and inspector</li>
+            <li>Simulation separated from rendering and editing</li>
+            <li>Recorded simulations with playback and free camera control</li>
+            <li>Native C++ physics and OpenGL rendering</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="panel status" id="current-work">
+        <h2>Current Development</h2>
+
+        <div class="status-grid">
+          <div class="status-item">
+            <span class="status-label">Building</span>
+            <span class="status-value">
+              Simulation recording and playback
+            </span>
+          </div>
+
+          <div class="status-item">
+            <span class="status-label">Improving</span>
+            <span class="status-value">
+              Ragdoll connections, anchors, and constraints
+            </span>
+          </div>
+
+          <div class="status-item">
+            <span class="status-label">Coming Next</span>
+            <span class="status-value">
+              Springs, wheels, motors, and reusable physical components
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <section class="grid">
+        <article class="panel">
+          <h2>About</h2>
+
+          <p class="panel-copy">
+            ProtoBall began as a football prototype and is evolving into a
+            broader physics playground: a space for creating machines,
+            structures, crashes, experiments, and unpredictable physical
+            interactions.
+          </p>
+        </article>
+
+        <article class="panel">
           <h2>Latest Devlogs</h2>
+
           <ul>
             <li>
-              <a class="button-link" href="devlog.html">Dev Log #001: Building ProtoBall's Procedural Animation Tools</a>
+              <a class="devlog-link" href="devlog.html">
+                Building ProtoBall's Physics Playground
+              </a>
+            </li>
+
+            <li>
+              <a class="devlog-link" href="devlog.html">
+                Separating the Editor, Simulation, and Renderer
+              </a>
+            </li>
+
+            <li>
+              <a class="devlog-link" href="devlog.html">
+                Ragdolls, Anchors, Structures, and Mechanical Systems
+              </a>
             </li>
           </ul>
         </article>
@@ -306,17 +508,23 @@
       <section class="panel media">
         <div class="media-frame">
           <div class="media-inner">
-            <span class="media-tag">Media</span>
-            <h2 class="media-title">Video or GIF goes here</h2>
+            <span class="media-tag">Latest Experiment</span>
+
+            <h2 class="media-title">
+              Physics in Motion
+            </h2>
+
             <p class="media-copy">
-              Replace this block with your gameplay clip, teaser trailer, or an animated
-              GIF showing ball control and match flow.
+              Add a gameplay video, simulation recording, or animated GIF
+              showing a ragdoll, machine, structure, or crash experiment.
             </p>
           </div>
         </div>
       </section>
 
-      <p class="footer">Read the full development archive in the devlog.</p>
+      <p class="footer">
+        ProtoBall is an independent experimental project currently in development.
+      </p>
     </main>
   </body>
 </html>
