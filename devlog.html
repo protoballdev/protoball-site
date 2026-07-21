@@ -282,6 +282,11 @@
         <aside class="archive">
           <h2>All Entries</h2>
           <nav class="archive-list" aria-label="Devlog archive">
+            <a class="archive-link" href="#devlog-003">
+              <strong>Dev Log #003</strong>
+              <span>Editor Progress and Simulation Trajectories</span>
+            </a>
+
             <a class="archive-link" href="#devlog-002">
               <strong>Dev Log #002</strong>
               <span>Major Refactoring and the Core Simulation</span>
@@ -295,6 +300,50 @@
         </aside>
 
         <section>
+          <article class="entry" id="devlog-003">
+            <header class="entry-header">
+              <span class="entry-index">Dev Log #003</span>
+              <h2>Editor Progress and Simulation Trajectories</h2>
+              <div class="entry-meta">July 21, 2026</div>
+            </header>
+
+            <div class="entry-copy">
+              <p>
+                Over the last few days, most of the work has moved into the physics
+                editor. The editor is becoming a practical place to assemble, inspect
+                and modify physical systems instead of relying on hand-edited files.
+              </p>
+
+              <p>Current editor progress includes:</p>
+
+              <ul>
+                <li>Editing joints directly from the world tree and editor panels.</li>
+                <li>Creating, selecting and editing rigid bodies, including their dimensions, position and rotation.</li>
+                <li>Loading, copying and editing rigid systems and their connected bodies and joints.</li>
+                <li>Working with ragdolls and anchors as part of the same world-editing workflow.</li>
+                <li>Separating editor and simulation concerns so changes can be tested in play and pause modes.</li>
+              </ul>
+
+              <h3>Recording Simulation Trajectories</h3>
+
+              <p>
+                I'm also adding the first pieces of a simulation trajectory recorder and
+                player. Simulations can now produce structured snapshots of their state,
+                and the new trajectory pipeline is being built to record sampled frames,
+                store metadata and object state, and read those trajectories back for
+                later playback and analysis.
+              </p>
+
+              <p>
+                This should make it much easier to reproduce interesting physical
+                moments, compare simulations and inspect behavior without having to run
+                the entire scenario again. The recorder and player workflow is still in
+                development, but the underlying snapshot and trajectory format is now
+                taking shape.
+              </p>
+            </div>
+          </article>
+
           <article class="entry" id="devlog-002">
             <header class="entry-header">
               <span class="entry-index">Dev Log #002</span>
