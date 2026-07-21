@@ -282,6 +282,11 @@
         <aside class="archive">
           <h2>All Entries</h2>
           <nav class="archive-list" aria-label="Devlog archive">
+            <a class="archive-link" href="#devlog-002">
+              <strong>Dev Log #002</strong>
+              <span>Major Refactoring and the Core Simulation</span>
+            </a>
+
             <a class="archive-link" href="#devlog-001">
               <strong>Dev Log #001</strong>
               <span>Building ProtoBall's Procedural Animation Tools</span>
@@ -290,6 +295,84 @@
         </aside>
 
         <section>
+          <article class="entry" id="devlog-002">
+            <header class="entry-header">
+              <span class="entry-index">Dev Log #002</span>
+              <h2>Major Refactoring and the Core Simulation</h2>
+              <div class="entry-meta">July 17, 2026</div>
+            </header>
+
+            <!-- Optional image
+            <figure class="entry-image">
+              <img
+                src="images/20260717_physics_editor.png"
+                alt="ProtoBall physics editor showing rigid bodies, structures and ragdolls"
+              />
+            </figure>
+            -->
+
+            <div class="entry-copy">
+              <p>
+                A lot has changed over the past few days. I've been doing a major
+                refactoring of ProtoBall's core architecture.
+              </p>
+
+              <p>
+                The main goal is to clearly separate the editor, simulation and rendering
+                systems. This makes the project easier to extend while keeping the physics
+                simulation independent from its visual representation.
+              </p>
+
+              <p>
+                The simulation is also becoming much more consistent. Instead of treating
+                every feature as an isolated experiment, ProtoBall is evolving around a
+                set of well-defined physical systems:
+              </p>
+
+              <ul>
+                <li>Rigid body assemblies.</li>
+                <li>Deformable structures.</li>
+                <li>Procedural ragdolls.</li>
+                <li>Shared physics and editing infrastructure.</li>
+              </ul>
+
+              <p>
+                The ragdoll system is being reorganized as well. Rendering is being
+                separated from the skeletal and physical representation, making it easier
+                to change the visual model without affecting the simulation. The balance
+                controller is also becoming part of the core ragdoll system.
+              </p>
+
+              <h3>Building the Editing Tools</h3>
+
+              <p>
+                My current focus is creating a solid workflow for building and connecting
+                physical systems directly inside the editor.
+              </p>
+
+              <p>
+                I'm mainly working on structure anchors, joints, connections and their
+                editing tools. The goal is to make it easy to assemble interesting systems
+                from simple physical components such as:
+              </p>
+
+              <ul>
+                <li>Ropes.</li>
+                <li>Chains.</li>
+                <li>Springs.</li>
+                <li>Articulated rigid bodies.</li>
+                <li>Rigid and deformable structures connected together.</li>
+              </ul>
+
+              <p>
+                ProtoBall is gradually becoming a physics playground where complex
+                behavior can emerge from simple components. Building solid editing tools
+                now will make experimenting with machines, ragdolls and deformable
+                structures much easier in the future.
+              </p>
+            </div>
+          </article>
+
           <article class="entry" id="devlog-001">
             <header class="entry-header">
               <span class="entry-index">Dev Log #001</span>
