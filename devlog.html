@@ -312,7 +312,7 @@
           <nav class="archive-list" aria-label="Devlog archive">
             <a class="archive-link" href="#devlog-004">
               <strong>Dev Log #004</strong>
-              <span>Building ProtoBall's Physics Playground</span>
+              <span>A Lot of New Systems</span>
             </a>
 
             <a class="archive-link" href="#devlog-003">
@@ -336,38 +336,73 @@
           <article class="entry" id="devlog-004">
             <header class="entry-header">
               <span class="entry-index">Dev Log #004</span>
-              <h2>Building ProtoBall's Physics Playground</h2>
+              <h2>A Lot of New Systems</h2>
               <div class="entry-meta">August 6, 2026</div>
             </header>
 
+            <figure class="entry-image">
+              <img
+                src="images/20260806_1.png"
+                alt="ProtoBall simulation showing a rigid-body structure with an energy breakdown overlay"
+              />
+            </figure>
+
+            <figure class="entry-image">
+              <img
+                src="images/20260806_2.png"
+                alt="ProtoBall simulation showing a deformable structure and energy distribution overlay"
+              />
+            </figure>
+
+            <figure class="entry-image">
+              <img
+                src="images/20260806_3.png"
+                alt="ProtoBall editor showing structure selection, transform gizmos and the inspector"
+              />
+            </figure>
+
             <div class="entry-copy">
               <p>
-                ProtoBall is starting to feel less like a collection of physics
-                experiments and more like a complete playground for building,
-                testing and observing mechanical systems.
+                A lot of new features have landed in ProtoBall recently. This update
+                covers several improvements to the physics systems and a major step
+                forward for the editor.
               </p>
 
-              <p>
-                The current development focus is bringing the editor, simulation
-                and recorded playback workflow together. Worlds can be assembled
-                from rigid bodies, joints, anchors, ragdolls and deformable
-                structures, then tested directly in the simulation.
-              </p>
-
-              <h3>Current Direction</h3>
+              <h3>What's New</h3>
 
               <ul>
-                <li>Make physical components easy to create and connect.</li>
-                <li>Keep editing, simulation and rendering clearly separated.</li>
-                <li>Record interesting moments and replay them for inspection.</li>
-                <li>Build reusable tools for machines, structures and experiments.</li>
+                <li>
+                  <strong>Rigid-body attachments to deformable structures.</strong>
+                  Rigid bodies can now be connected to structures and interact with
+                  the world. These attachments are not breakable yet, but breakable
+                  attachments are planned for a future update.
+                </li>
+                <li>
+                  <strong>Energy distribution and budget tracking.</strong> The
+                  interface now includes potential and kinetic energy panels, along
+                  with an energy budget showing current energy versus initial energy.
+                  Friction, elastic, plastic and wreckage energies are planned next.
+                </li>
+                <li>
+                  <strong>A much-improved editor.</strong> Navigation now feels more
+                  like Blender, with move, rotate and scale gizmos, plus separate
+                  object and component selection workflows.
+                </li>
+                <li>
+                  <strong>Breakable joints between rigid bodies.</strong> Joints can
+                  now fail during simulation, making it possible to build systems that
+                  react to stress and impact.
+                </li>
+                <li>
+                  <strong>Physics component builders.</strong> Wheel-and-axle and rope
+                  builders are now available, with many more components planned.
+                </li>
               </ul>
 
               <p>
-                The goal is a space where simple components can produce complex,
-                surprising behavior. With the editor and trajectory tools taking
-                shape, the next step is to spend more time designing experiments
-                and less time wiring them together by hand.
+                These systems are bringing ProtoBall closer to its goal: a physics
+                playground where complex machines and structures can be assembled,
+                simulated and inspected directly inside the editor.
               </p>
             </div>
           </article>
