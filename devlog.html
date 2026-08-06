@@ -3,19 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Protoball Devlog</title>
+    <title>ProtoBall — Devlog</title>
     <style>
       :root {
-        --bg: #f7f3e8;
-        --bg-deep: #e8e0cf;
-        --panel: rgba(251, 248, 240, 0.92);
-        --panel-strong: #f3ebd8;
-        --line: rgba(68, 55, 34, 0.18);
-        --text: #2f2618;
-        --muted: #685a47;
-        --accent: #8d5b2b;
-        --accent-soft: #d6bb87;
-        --shadow: 0 22px 60px rgba(48, 34, 18, 0.16);
+        --bg: #f8f7f2;
+        --bg-soft: #e8f5fc;
+        --panel: rgba(248, 247, 242, 0.84);
+        --panel-strong: rgba(255, 255, 255, 0.38);
+        --line: rgba(46, 52, 64, 0.12);
+        --text: #2e3440;
+        --muted: #5c6675;
+        --accent: #9ad94f;
+        --accent-2: #7b61ff;
+        --sky: #6ecff6;
+        --shadow: 0 24px 60px rgba(46, 52, 64, 0.14);
       }
 
       * {
@@ -26,10 +27,11 @@
         margin: 0;
         min-height: 100vh;
         color: var(--text);
-        font-family: Georgia, "Times New Roman", serif;
+        font-family: "Trebuchet MS", "Segoe UI", sans-serif;
         background:
-          radial-gradient(circle at top, rgba(214, 187, 135, 0.25), transparent 30%),
-          linear-gradient(180deg, var(--bg-deep) 0%, var(--bg) 18%, #fbf8f0 100%);
+          radial-gradient(circle at top, rgba(110, 207, 246, 0.34), transparent 34%),
+          radial-gradient(circle at bottom right, rgba(123, 97, 255, 0.12), transparent 30%),
+          linear-gradient(180deg, var(--bg-soft) 0%, var(--bg) 100%);
       }
 
       body::before {
@@ -37,12 +39,11 @@
         position: fixed;
         inset: 0;
         pointer-events: none;
-        opacity: 0.18;
         background-image:
-          linear-gradient(rgba(68, 55, 34, 0.18) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(68, 55, 34, 0.12) 1px, transparent 1px);
-        background-size: 32px 32px;
-        mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.85), transparent 85%);
+          linear-gradient(rgba(46, 52, 64, 0.04) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(46, 52, 64, 0.04) 1px, transparent 1px);
+        background-size: 28px 28px;
+        mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.5), transparent);
       }
 
       a {
@@ -50,9 +51,9 @@
       }
 
       .page {
-        width: min(1120px, calc(100% - 32px));
+        width: min(1080px, calc(100% - 32px));
         margin: 0 auto;
-        padding: 34px 0 72px;
+        padding: 48px 0 64px;
       }
 
       .topbar,
@@ -61,6 +62,7 @@
         background: var(--panel);
         border: 1px solid var(--line);
         box-shadow: var(--shadow);
+        backdrop-filter: blur(12px);
       }
 
       .topbar {
@@ -70,7 +72,7 @@
         gap: 16px;
         margin-bottom: 20px;
         padding: 18px 22px;
-        border-radius: 20px;
+        border-radius: 24px;
       }
 
       .brand {
@@ -90,10 +92,11 @@
       h3 {
         margin: 0;
         line-height: 1.1;
+        text-transform: uppercase;
       }
 
       h1 {
-        font-size: clamp(2.2rem, 5vw, 4rem);
+        font-size: clamp(3rem, 10vw, 6.5rem);
         letter-spacing: 0.04em;
         text-transform: uppercase;
       }
@@ -105,11 +108,20 @@
         padding: 0 16px;
         border: 1px solid var(--line);
         border-radius: 999px;
-        background: var(--panel-strong);
+        color: var(--text);
+        background: rgba(248, 247, 242, 0.88);
         text-decoration: none;
         text-transform: uppercase;
         letter-spacing: 0.08em;
         font-size: 0.78rem;
+        font-weight: 700;
+        transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+      }
+
+      .home-link:hover {
+        transform: translateY(-2px);
+        border-color: rgba(123, 97, 255, 0.3);
+        box-shadow: 0 10px 22px rgba(46, 52, 64, 0.12);
       }
 
       .layout {
@@ -143,8 +155,13 @@
         padding: 14px 16px;
         border: 1px solid var(--line);
         border-radius: 14px;
-        background: rgba(243, 235, 216, 0.72);
+        background: rgba(255, 255, 255, 0.38);
         text-decoration: none;
+      }
+
+      .archive-link:hover {
+        border-color: rgba(123, 97, 255, 0.3);
+        box-shadow: 0 8px 18px rgba(46, 52, 64, 0.08);
       }
 
       .archive-link strong {
@@ -162,8 +179,13 @@
       }
 
       .entry {
-        padding: 34px;
+        padding: 28px;
         border-radius: 24px;
+      }
+
+      section {
+        display: grid;
+        gap: 20px;
       }
 
       .entry-header {
@@ -173,7 +195,8 @@
       }
 
       .entry-index {
-        color: var(--accent);
+        color: var(--accent-2);
+        font-weight: 700;
         font-size: 0.82rem;
         letter-spacing: 0.18em;
         text-transform: uppercase;
@@ -190,7 +213,7 @@
         border: 1px solid var(--line);
         border-radius: 18px;
         overflow: hidden;
-        background: var(--panel-strong);
+        background: linear-gradient(135deg, rgba(110, 207, 246, 0.24), rgba(154, 217, 79, 0.14));
       }
 
       .entry-image img {
@@ -202,6 +225,7 @@
       .entry-copy {
         display: grid;
         gap: 18px;
+        color: var(--muted);
         font-size: 1.05rem;
         line-height: 1.75;
       }
@@ -224,6 +248,10 @@
 
       .entry-copy li {
         margin: 0 0 10px;
+      }
+
+      .entry-copy li::marker {
+        color: var(--accent-2);
       }
 
       .footer {
@@ -282,6 +310,11 @@
         <aside class="archive">
           <h2>All Entries</h2>
           <nav class="archive-list" aria-label="Devlog archive">
+            <a class="archive-link" href="#devlog-004">
+              <strong>Dev Log #004</strong>
+              <span>Building ProtoBall's Physics Playground</span>
+            </a>
+
             <a class="archive-link" href="#devlog-003">
               <strong>Dev Log #003</strong>
               <span>Editor Progress and Simulation Trajectories</span>
@@ -300,6 +333,45 @@
         </aside>
 
         <section>
+          <article class="entry" id="devlog-004">
+            <header class="entry-header">
+              <span class="entry-index">Dev Log #004</span>
+              <h2>Building ProtoBall's Physics Playground</h2>
+              <div class="entry-meta">August 6, 2026</div>
+            </header>
+
+            <div class="entry-copy">
+              <p>
+                ProtoBall is starting to feel less like a collection of physics
+                experiments and more like a complete playground for building,
+                testing and observing mechanical systems.
+              </p>
+
+              <p>
+                The current development focus is bringing the editor, simulation
+                and recorded playback workflow together. Worlds can be assembled
+                from rigid bodies, joints, anchors, ragdolls and deformable
+                structures, then tested directly in the simulation.
+              </p>
+
+              <h3>Current Direction</h3>
+
+              <ul>
+                <li>Make physical components easy to create and connect.</li>
+                <li>Keep editing, simulation and rendering clearly separated.</li>
+                <li>Record interesting moments and replay them for inspection.</li>
+                <li>Build reusable tools for machines, structures and experiments.</li>
+              </ul>
+
+              <p>
+                The goal is a space where simple components can produce complex,
+                surprising behavior. With the editor and trajectory tools taking
+                shape, the next step is to spend more time designing experiments
+                and less time wiring them together by hand.
+              </p>
+            </div>
+          </article>
+
           <article class="entry" id="devlog-003">
             <header class="entry-header">
               <span class="entry-index">Dev Log #003</span>
