@@ -290,6 +290,11 @@
         <aside class="archive">
           <h2>All Entries</h2>
           <nav class="archive-list" aria-label="Devlog archive">
+            <a class="archive-link" href="#devlog-005">
+              <strong>Dev Log #005</strong>
+              <span>Ragdoll Physics Progress</span>
+            </a>
+
             <a class="archive-link" href="#devlog-004">
               <strong>Dev Log #004</strong>
               <span>A Lot of New Systems</span>
@@ -313,6 +318,62 @@
         </aside>
 
         <section>
+          <article class="entry" id="devlog-005">
+            <header class="entry-header">
+              <span class="entry-index">Dev Log #005</span>
+              <h2>Ragdoll Physics Progress</h2>
+              <div class="entry-meta">August 18, 2026</div>
+            </header>
+
+            <figure class="entry-image">
+              <img
+                src="images/20260818_1.png"
+                alt="ProtoBall simulation showing a ragdoll and its physical systems"
+              />
+            </figure>
+
+            <div class="entry-copy">
+              <p>
+                I've been making progress on the ragdoll and energy systems in ProtoBall.
+                The latest work is focused on making ragdolls react more naturally to
+                impacts while keeping the simulation's energy behavior consistent.
+              </p>
+
+              <h3>What's New</h3>
+
+              <ul>
+                <li>
+                  <strong>Breakable joints.</strong> Ragdoll joints can now be tuned to
+                  break under stress, making impacts and failures behave more naturally.
+                </li>
+                <li>
+                  <strong>Ragdoll balance.</strong> The balance controller has been
+                  improved so the ragdoll can respond more convincingly to disturbances.
+                </li>
+                <li>
+                  <strong>Initial ragdoll velocity.</strong> Ragdolls can now start with
+                  an initial velocity, making it easier to reproduce throws, falls and
+                  other moving situations.
+                </li>
+                <li>
+                  <strong>Permanent deformation.</strong> The simulation is now being
+                  extended to preserve deformation after the forces causing it are gone.
+                </li>
+                <li>
+                  <strong>Friction energy.</strong> Friction energy is now being tracked
+                  as part of the simulation's energy breakdown.
+                </li>
+              </ul>
+
+              <h3>Coming Up</h3>
+
+              <p>
+                The next focus is the ragdoll injury system, which will connect physical
+                impacts and joint failures with the ragdoll's injury state.
+              </p>
+            </div>
+          </article>
+
           <article class="entry" id="devlog-004">
             <header class="entry-header">
               <span class="entry-index">Dev Log #004</span>

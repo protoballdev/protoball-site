@@ -32,3 +32,12 @@ The long-term goal is to create football players that move naturally through a c
 
 This is just the beginning.
 Test
+
+Dev Log #005 — Ragdoll Physics Progress
+August 18, 2026
+
+I've been making progress on the ragdoll and energy systems in ProtoBall. Recent work
+includes breakable joints, ragdoll balance, initial ragdoll velocity, permanent
+deformation and friction energy tracking.
+
+Coming up: the ragdoll injury system.
