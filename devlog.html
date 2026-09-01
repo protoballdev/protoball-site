@@ -290,6 +290,11 @@
         <aside class="archive">
           <h2>All Entries</h2>
           <nav class="archive-list" aria-label="Devlog archive">
+            <a class="archive-link" href="#devlog-006">
+              <strong>Dev Log #006</strong>
+              <span>ProtoBall dev-0.0.8</span>
+            </a>
+
             <a class="archive-link" href="#devlog-005">
               <strong>Dev Log #005</strong>
               <span>Ragdoll Physics Progress</span>
@@ -318,6 +323,114 @@
         </aside>
 
         <section>
+          <article class="entry" id="devlog-006">
+            <header class="entry-header">
+              <span class="entry-index">Dev Log #006</span>
+              <h2>ProtoBall dev-0.0.8</h2>
+              <div class="entry-meta">September 1, 2026</div>
+            </header>
+
+            <div class="entry-copy">
+              <p>
+                The <code>dev-0.0.8</code> development line is a large PhysicsLab
+                milestone. It combines a refactored editor architecture with new
+                ragdoll, structure-builder, Demo and simulation-presentation workflows.
+              </p>
+
+              <h3>Issues included</h3>
+
+              <p>
+                The branch includes work associated with
+                <a href="https://github.com/luchete80/protoball/issues/116">#116</a>,
+                <a href="https://github.com/luchete80/protoball/issues/119">#119</a>,
+                <a href="https://github.com/luchete80/protoball/issues/121">#121</a>,
+                <a href="https://github.com/luchete80/protoball/issues/122">#122</a>,
+                <a href="https://github.com/luchete80/protoball/issues/123">#123</a>,
+                <a href="https://github.com/luchete80/protoball/issues/126">#126</a>,
+                <a href="https://github.com/luchete80/protoball/issues/127">#127</a>,
+                <a href="https://github.com/luchete80/protoball/issues/131">#131</a>,
+                <a href="https://github.com/luchete80/protoball/issues/132">#132</a>,
+                <a href="https://github.com/luchete80/protoball/issues/133">#133</a>,
+                <a href="https://github.com/luchete80/protoball/issues/135">#135</a>,
+                <a href="https://github.com/luchete80/protoball/issues/136">#136</a>,
+                <a href="https://github.com/luchete80/protoball/issues/137">#137</a>,
+                <a href="https://github.com/luchete80/protoball/issues/138">#138</a>,
+                <a href="https://github.com/luchete80/protoball/issues/139">#139</a>,
+                <a href="https://github.com/luchete80/protoball/issues/142">#142</a>,
+                <a href="https://github.com/luchete80/protoball/issues/143">#143</a>,
+                <a href="https://github.com/luchete80/protoball/issues/144">#144</a>,
+                <a href="https://github.com/luchete80/protoball/issues/145">#145</a>,
+                <a href="https://github.com/luchete80/protoball/issues/146">#146</a> and
+                <a href="https://github.com/luchete80/protoball/issues/149">#149</a>.
+              </p>
+
+              <h3>What changed</h3>
+
+              <ul>
+                <li>
+                  <strong>#116 — PhysicsLab refactor.</strong> The editor work was
+                  split into clearer UI, action, command, session, scene-view and
+                  renderer boundaries, with shared preview-rendering contracts and
+                  more predictable frame coordination.
+                </li>
+                <li>
+                  <strong>#119 — Ragdoll joint failure.</strong> Joint failures now
+                  support staged angular release, balance shutdown, physical
+                  constraint breaking, detached-island tracking and finite spine and
+                  neck limits, while keeping PBTRAJ replay compatibility.
+                </li>
+                <li>
+                  <strong>#121 — Simulation saves.</strong> <code>Ctrl+S</code> now
+                  creates timestamped, collision-safe PBTRAJ files while preserving
+                  the existing Save As flow.
+                </li>
+                <li>
+                  <strong>#122, #123, #127, #132, #133 and #135 — Builders and
+                  structures.</strong> Builder previews gained pinned placement,
+                  transform editing and non-mutating confirmation; Box-Truss Beam
+                  creation, joint/endpoint selection, truss-joint handling and
+                  multi-structure saving were expanded across the editor and
+                  trebuchet examples.
+                </li>
+                <li>
+                  <strong>#126, #131 and #136 — Editor interaction and ragdolls.</strong>
+                  Selection now resolves persistent structure and ragdoll identities
+                  across instances, restores keyboard shortcuts and gizmo behavior,
+                  and improves ragdoll attachment, camera framing and presentation
+                  synchronization.
+                </li>
+                <li>
+                  <strong>#137, #138 and #139 — Physical behavior.</strong> Trusses
+                  gained tensile plastic yielding through the existing damage, energy
+                  and replay paths, alongside balance and trebuchet behavior updates.
+                </li>
+                <li>
+                  <strong>#142, #143 and #144 — Demo edition.</strong> Demo mode now
+                  has a dedicated launcher, staged assets, simplified contextual UI,
+                  visible complexity limits and more reliable maximized startup.
+                </li>
+                <li>
+                  <strong>#145 and #146 — Simulation presentation and bounds.</strong>
+                  Compact stored-versus-dissipated energy presentation was added,
+                  followed by a finite Demo world with rebound walls, a ceiling,
+                  authored-bounds validation and a visible 50 m × 50 m footprint.
+                </li>
+                <li>
+                  <strong>#149 — Truss visualization.</strong> Structure colors were
+                  standardized and live Simulation trusses now transition from ivory
+                  through yellow to orange according to force utilization, while
+                  plastified and damaged trusses remain red.
+                </li>
+              </ul>
+
+              <p>
+                Together these changes make the editor easier to extend, make physical
+                failures and energy behavior more legible, and give the Demo edition a
+                bounded, reproducible environment for showcasing ProtoBall.
+              </p>
+            </div>
+          </article>
+
           <article class="entry" id="devlog-005">
             <header class="entry-header">
               <span class="entry-index">Dev Log #005</span>
