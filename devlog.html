@@ -290,6 +290,11 @@
         <aside class="archive">
           <h2>All Entries</h2>
           <nav class="archive-list" aria-label="Devlog archive">
+            <a class="archive-link" href="#devlog-007">
+              <strong>Dev Log #007</strong>
+              <span>Building Connected Machines</span>
+            </a>
+
             <a class="archive-link" href="#devlog-006">
               <strong>Dev Log #006</strong>
               <span>ProtoBall dev-0.0.8</span>
@@ -323,6 +328,77 @@
         </aside>
 
         <section>
+          <article class="entry" id="devlog-007">
+            <header class="entry-header">
+              <span class="entry-index">Dev Log #007</span>
+              <h2>Building Connected Machines</h2>
+              <div class="entry-meta">September 24, 2026</div>
+            </header>
+
+            <div class="entry-copy">
+              <p>
+                Since the end of <code>dev-0.0.8</code>, PhysicsLab has grown into a
+                more capable workspace for building, connecting and testing moving
+                assemblies. The biggest changes are in structural failure, editor
+                placement and the first motor-driven systems.
+              </p>
+
+              <h3>What changed</h3>
+
+              <ul>
+                <li>
+                  <strong>#150 — Truss fracture.</strong> Deformable trusses can now
+                  fracture under configurable tension or compression. Broken members
+                  stop carrying force, and their state is visible in Simulation and
+                  Playback, including recorded trajectories.
+                </li>
+                <li>
+                  <strong>#158, #172 and #173 — Placement and snap.</strong> Rigid
+                  bodies and wheels gained grid, node, face and axis alignment.
+                  Face-to-face placement can align a body or wheel with a structural
+                  face; point snapping helps line up selected objects. The preview
+                  shows the transform that will be committed. Snapping alone does
+                  not create a physical connection.
+                </li>
+                <li>
+                  <strong>#161, #170 and #180 — Mechanical systems.</strong> Motor
+                  shafts can be inspected and retargeted in the editor, a dedicated
+                  builder creates wheel, shaft and bearing assemblies, and the new
+                  variable transmission lets a motor change its torque and speed
+                  ratio during Simulation.
+                </li>
+                <li>
+                  <strong>Duplication and editor history.</strong> Selected rigid
+                  bodies from one system can be duplicated with a movable preview,
+                  carrying joints whose two endpoints are copied. Complete structure instances can also
+                  be duplicated. <strong>#151</strong> expanded editor undo, and
+                  later work added redo and a viewport action toolbar
+                  (<strong>#191</strong>) for common commands.
+                </li>
+                <li>
+                  <strong>#175 — Live telemetry.</strong> Per-object speed and
+                  acceleration readouts, a ragdoll motion overlay and a motor HUD
+                  make it easier to see how a scene responds while it runs.
+                </li>
+                <li>
+                  <strong>#194 and #195 — Attachment editing.</strong> Existing structure-to-rigid
+                  connections now have a fuller Property Editor workflow for choosing
+                  endpoints, adjusting anchors and applying changes together.
+                </li>
+              </ul>
+
+              <h3>Still in progress</h3>
+
+              <p>
+                Structure duplication currently places the copy at the original
+                position, without a movable snap preview. Rigid-body duplication
+                has point-based placement, but it does not yet use the new structural
+                face snap. Undo and redo cover recorded editor actions, rather than
+                every possible edit.
+              </p>
+            </div>
+          </article>
+
           <article class="entry" id="devlog-006">
             <header class="entry-header">
               <span class="entry-index">Dev Log #006</span>
